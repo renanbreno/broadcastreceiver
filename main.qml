@@ -16,7 +16,6 @@ Window {
             Layout.alignment: Qt.AlignCenter
             Text {
                 text: `Mensagem recebida: ${receiver.message}`
-                wrapMode: Text.WrapAnywhere
             }
         }
     }
