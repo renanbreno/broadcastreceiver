@@ -18,5 +18,11 @@ Window {
                 text: `Mensagem recebida: ${receiver.message}`
             }
         }
+        RowLayout {
+            Layout.alignment: Qt.AlignCenter
+            Text {
+                text: `Foram recebidas ${receiver.messageNo} mensagens`
+            }
+        }
     }
 }

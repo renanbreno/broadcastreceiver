@@ -14,17 +14,21 @@ class Receiver : public QObject
 public:
     Receiver();
     Q_PROPERTY(QString message READ message NOTIFY messageChanged);
+    Q_PROPERTY(int messageNo READ messageNo NOTIFY messageNoChanged);
     Q_INVOKABLE void processPendingDatagrams();
 
 public slots:
+    int messageNo();
     QString message();
 
 signals:
+    void messageNoChanged();
     void messageChanged();
 
 private:
     QUdpSocket *udpSocket = nullptr;
     QString m_message = "Nenhuma informação transmitida";
+    int m_messageNo = 0;
 
 };
 

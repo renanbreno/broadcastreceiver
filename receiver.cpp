@@ -16,8 +16,16 @@ void Receiver::processPendingDatagrams()
         datagram.resize(int(udpSocket->pendingDatagramSize()));
         udpSocket->readDatagram(datagram.data(), datagram.size());
         m_message = datagram.data();
+
+        ++m_messageNo;
         emit messageChanged();
+        emit messageNoChanged();
     }
+}
+
+int Receiver::messageNo()
+{
+    return m_messageNo;
 }
 
 QString Receiver::message()
